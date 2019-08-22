@@ -1,3 +1,5 @@
+# Class to hold necessary information for booking a room for a single person
+
 class Person:
 
     def __init__(self, time, first, last, email):
