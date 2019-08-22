@@ -106,7 +106,6 @@ def make_booking(driver, people):
             element = WebDriverWait(driver, 10).until(
                 ec.element_to_be_clickable((By.XPATH, xpath_button)))
             element.click()
-
             print("Booking Room 7 on " + weekday + ", " + month + " " + day + ", " + year +
                   " for " + person.first + " " + person.last)
 
