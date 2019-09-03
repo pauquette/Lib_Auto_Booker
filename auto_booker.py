@@ -52,15 +52,8 @@ def read_csv_to_list(filename):
 
 
 def select_date(driver):
-    xpath_to_calendar_button = "//button[@type='button']"
-    driver.find_element_by_xpath(xpath_to_calendar_button).click()  # Selects "Go To Date" button
-
-    if 1 <= book_day <= 3:  # If dates roll over to next month
-        xpath_to_next_month = "//th[@class='next']"
-        driver.find_element_by_xpath(xpath_to_next_month).click()  # Select next month
-
-    xpath_to_date = "//td[text()='" + str(book_day) + "']"
-    driver.find_element_by_xpath(xpath_to_date).click()  # Selects date three days in future
+    xpath_to_arrow = "//*[@id='eq-time-grid']/div[1]/div[1]/div/button[2]/span"
+    driver.find_element_by_xpath(xpath_to_arrow).click()  # Selects arrow button
 
 
 # Function that goes through the process of booking a library room.
@@ -106,6 +99,7 @@ def make_booking(driver, people):
             element = WebDriverWait(driver, 10).until(
                 ec.element_to_be_clickable((By.XPATH, xpath_button)))
             element.click()
+
             print("Booking Room 7 on " + weekday + ", " + month + " " + day + ", " + year +
                   " for " + person.first + " " + person.last)
 
