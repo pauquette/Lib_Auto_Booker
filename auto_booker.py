@@ -80,7 +80,7 @@ def make_booking(driver, people):
 
         try:
             xpath_book = "//a[@title='" + t + " " + weekday + ", " + month + " " + day + ", " + year + " - Room 06']"
-            element = WebDriverWait(driver, 1).until(
+            element = WebDriverWait(driver, 2.5).until(
                 ec.element_to_be_clickable((By.XPATH, xpath_book)))
             element.click()  # Finds appropriate booking time and selects
 
@@ -92,7 +92,7 @@ def make_booking(driver, people):
 
         except selenium.common.exceptions.TimeoutException:  # If Room 6 is already booked, book Room 7
             xpath_book = "//a[@title='" + t + " " + weekday + ", " + month + " " + day + ", " + year + " - Room 07']"
-            element = WebDriverWait(driver, 1).until(ec.presence_of_element_located((By.XPATH, xpath_book)))
+            element = WebDriverWait(driver, 2.5).until(ec.presence_of_element_located((By.XPATH, xpath_book)))
             element.click()
 
             xpath_button = "//button[@id='submit_times']"
