@@ -16,7 +16,7 @@ book_day = book_date.day
 
 def main():
     people = read_csv_to_list("people.csv")
-    driver = webdriver.Firefox()
+    driver = webdriver.Chrome()
     driver.implicitly_wait(10)
     print("Loading library website...")
     driver.get('https://booking.lib.buffalo.edu/reserve/silverman')
